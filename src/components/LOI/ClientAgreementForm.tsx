@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './styles/index.css';
 import { LoiAgreement } from '../../lib/interfaces/LoiAgreement';
 import { Grid, Button, TextField, Typography } from '@mui/material';
@@ -71,10 +71,6 @@ interface LoiFormProps {
 
 interface ClientAgreementFormForLetterOfIntentProps extends LoiFormProps {
   setActiveStep: (page: number) => void;
-}
-
-interface ClientAgreementFormProps extends LoiFormProps {
-  onSubmitLetterOfIntent: any;
 }
 
 function PaymentConditions() {
