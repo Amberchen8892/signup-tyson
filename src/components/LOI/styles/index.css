@@ -1,0 +1,70 @@
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.client-agreement-lead-source-sponsor {
+  font-weight: 900;
+}
+
+.client-agreement-invoice {
+  min-height: 300px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  padding: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e7e7e7;
+  border-radius: 0px;
+  background-color: #fff;
+  -webkit-transition: background-color 200ms ease, box-shadow 400ms ease, border-color 200ms ease, -webkit-transform 400ms cubic-bezier(0.25, 0.1, 0, 1.58);
+  transition: background-color 200ms ease, box-shadow 400ms ease, transform 400ms cubic-bezier(0.25, 0.1, 0, 1.58), border-color 200ms ease, -webkit-transform 400ms cubic-bezier(0.25, 0.1, 0, 1.58);
+  color: #000;
+  font-size: 24px;
+  line-height: 1.4em;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.client-agreement-invoice-container {
+  display: flex;
+}
+
+.client-agreement-invoice-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.client-agreement-invoice-img {
+  flex: 1;
+  max-height: 50px;
+  top: 32px;
+}
+
+.client-agreement-invoice-checkbox {
+}
+
+.client-agreement-wrapper {
+  margin: 16px;
+}
+
+.client-agreement-contents {
+  color: #747474;
+  padding: 24px;
+  max-width: 800px;
+  margin: auto;
+  overflow: auto;
+  /*max-height: 500px;*/
+  border: 3px double #e7e7e7;
+}
+
+.client-agreement-lead-source-sponsor-wype-message {
+  margin-bottom: 16px;
+}
+
+.client-agreement-item {
+  font-weight: 800;
+  vertical-align: middle;
+}
