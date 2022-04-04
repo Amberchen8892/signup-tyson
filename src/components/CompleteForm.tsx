@@ -90,7 +90,7 @@ const CompleteForm: FC<ICompleteFormProps> = ({ setActiveStep, user }: IComplete
             You're being redirected to myryze.com
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            After enrolling into credit monitoring, your account executuive at Wype will reach out to complete your welcome call. We look forward to working with you!
+            After enrolling into credit monitoring, your account executive at Wype will reach out to complete your welcome call. We look forward to working with you!
           </Typography>
           <Grid container xs={12} spacing={2}>
             <Grid item xs={12} sm={7}>

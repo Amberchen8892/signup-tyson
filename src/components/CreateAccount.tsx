@@ -114,7 +114,7 @@ const schema = yup.object().shape({
   repName: yup.string().max(300),
   repEmail: yup.string().max(300),
   repPhone: yup.string().max(256),
-  kW: yup.string().max(400).required(),
+  kW: yup.string().max(400),
 });
 
 interface IShippingFormProps {

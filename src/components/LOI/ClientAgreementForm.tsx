@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 const schema = yup.object().shape({
-  agreement_text: yup.string().required('Your name is required'),
+  agreement_text: yup.string(),
   agreement_date: yup
     .string()
     .matches(/^(0[1-9]|1[012])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d\d$/, 'DOB must match format MM/DD/YYYY and be a valid date')
