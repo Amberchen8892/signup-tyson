@@ -115,6 +115,7 @@ const schema = yup.object().shape({
   repEmail: yup.string().max(300),
   repPhone: yup.string().max(256),
   kW: yup.string().max(400),
+  loan_amount: yup.string().max(256),
 });
 
 interface IShippingFormProps {
@@ -363,8 +364,8 @@ const CreateAccount: FC<IShippingFormProps> = ({ setActiveStep }: IShippingFormP
               />
             </Grid>
           </Grid>
-          <Grid container item xs={12}>
-            <Grid item xs={12} sm={7} className={classes.leftField} style={{marginRight: '12px'}}>
+          <Grid container item xs={12} spacing={2}>
+            <Grid item xs={12} sm className={classes.leftField} style={{marginRight: '12px'}}>
               <Controller
                 name="repPhone"
                 control={methods.control}
@@ -398,6 +399,25 @@ const CreateAccount: FC<IShippingFormProps> = ({ setActiveStep }: IShippingFormP
                 )}
               />
             </Grid>
+            <Grid item xs={12} sm className={classes.leftField}>
+                    <FormControl fullWidth variant="standard" sx={{ mt: 1, minWidth: 120 }} error={!!methods.formState.errors.loan_amount}>
+                      <InputLabel id="demo-simple-select-helper-label-loan-amount">Loan Amount</InputLabel>
+                      <Controller
+                        name="loan_amount"
+                        control={methods.control}
+                        render={({ field }) => (
+                          <Select {...field} label="Loan Amount" labelId="demo-simple-select-helper-label-loan-amount">
+                            <MenuItem value="$0 - $50,000">$0 - $50,000</MenuItem>
+                            <MenuItem value="$50,000 - $75,000">$50,000 - $75,000</MenuItem>
+                            <MenuItem value="$75,000 - $100,000">$75,000 - $100,000</MenuItem>
+                            <MenuItem value="$100,000 - $125,000">$100,000 - $125,000</MenuItem>
+                            <MenuItem value="$125,000+">$125,000+</MenuItem>
+                          </Select>
+                        )}
+                      />
+                      {methods.formState.errors.loan_amount ? <FormHelperText>{methods.formState.errors.loan_amount?.message}</FormHelperText> : null}
+                    </FormControl>
+                  </Grid>
           </Grid>
           <div className={classes.buttons}>
             <Button type="submit" variant="contained" color="primary" className={classes.button}>

@@ -12,4 +12,5 @@ export interface CreateAccountInfo {
   repPhone: string;
   repEmail: string;
   kW: string;
+  loan_amount: string
 }

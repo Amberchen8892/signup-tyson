@@ -27,6 +27,7 @@ const initialState: State = {
     repEmail: '',
     repPhone: '',
     kW: '',
+    loan_amount: '',
   },
   customerInfo: {
     ssn: '',
