@@ -372,7 +372,7 @@ const CreateAccount: FC<IShippingFormProps> = ({ setActiveStep }: IShippingFormP
                 render={({ field }) => (
                   <TextField
                     {...field}
-                    label="Referring Rep Phone"
+                    label="Rep Phone"
                     variant="standard"
                     fullWidth
                     margin="dense"
