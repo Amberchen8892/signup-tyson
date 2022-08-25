@@ -167,56 +167,6 @@ const CustomerInfoForm: FC<CustomerInfoFormProps> = ({ setActiveStep }: Customer
             </Grid>
           </Grid>
           <Grid container item xs={12}>
-            <Grid item xs={12} sm={7} className={classes.leftField} style={{marginRight: '12px'}}>
-              <Controller
-                name="photoIdPath"
-                control={methods.control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    variant="standard"
-                    label="Photo of ID"
-                    margin="dense"
-                    type="file"
-                    fullWidth
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    error={!!methods.formState.errors.photoIdPath}
-                    helperText={
-                      methods.formState.errors.photoIdPath ? methods.formState.errors.photoIdPath?.message : ''
-                    }
-                  />
-                )}
-              />{' '}
-            </Grid>
-            <Grid item xs={12} sm>
-              <Controller
-                name="proofOfAddressPath"
-                control={methods.control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    label="Proof of Address"
-                    variant="standard"
-                    fullWidth
-                    margin="dense"
-                    type="file"
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    error={!!methods.formState.errors.proofOfAddressPath}
-                    helperText={
-                      methods.formState.errors.proofOfAddressPath
-                        ? methods.formState.errors.proofOfAddressPath?.message
-                        : ''
-                    }
-                  />
-                )}
-              />{' '}
-            </Grid>
-          </Grid>
-          <Grid container item xs={12}>
             <Grid item xs={12} sm>
               <Typography variant="subtitle1" gutterBottom component="div" style={{ marginTop: '1em' }}>
                 Terms & Condition and Limited Power of Attorney

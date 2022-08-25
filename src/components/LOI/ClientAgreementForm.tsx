@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/index.css';
 import { LoiAgreement } from '../../lib/interfaces/LoiAgreement';
-import { Grid, Button, TextField, Typography } from '@mui/material';
+import { Grid, Modal, Box, Button, TextField, Typography } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createStyles, makeStyles } from '@mui/styles';
 import { Theme } from '@mui/system';
@@ -11,6 +11,8 @@ import InputMask from 'react-input-mask';
 import wypeLogo from '../../images/wype.svg';
 import ryzeLogo from '../../images/ryze_1.png';
 import solarLogo from '../../images/logo2.png';
+import animationData from '../../lotties/redirect.json';
+import Lottie from 'react-lottie';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -88,9 +90,25 @@ const dd = String(today.getDate()).padStart(2, '0');
 const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 const yyyy = today.getFullYear();
 const todayString = mm + '/' + dd + '/' + yyyy;
-
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 700,
+  '@media (max-width: 700px)': {
+    width: 300,
+  },
+  bgcolor: 'background.paper',
+  //border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 const ClientAgreementForm: React.FC<ClientAgreementFormForLetterOfIntentProps> = (props) => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => setOpen(false);
+  const creditMonitoringLink = `http://app.myryze.com/redirect.asp`;
   const methods = useForm<LoiAgreement>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -98,16 +116,52 @@ const ClientAgreementForm: React.FC<ClientAgreementFormForLetterOfIntentProps> =
       agreement_date: todayString,
     },
   });
-
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
+ const goToRyze = (e: any) => {
+    e.preventDefault();
+    window.location.assign(creditMonitoringLink);
+  };
   //const title = props.loiOptions && props.loiOptions.agreement_title_text ? props.loiOptions.agreement_title_text : props.leadSource;
   const onSubmit = (e: any) => {
     //e.preventDefault();
-    props.setActiveStep(2);
+    setOpen(true)
     
   };
 
   return (
     <>
+         <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Hang Tight!
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            You're being redirected to myryze.com
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            After enrolling into credit monitoring, your account executive at Wype will reach out to complete your welcome call. We look forward to working with you!
+          </Typography>
+          <Grid container xs={12} spacing={2}>
+            <Grid item xs={12} sm={7}>
+              <Lottie options={defaultOptions} height={80} width={250} />
+            </Grid>
+            <Grid item xs={12} sm={5}>
+              <div className={classes.buttons} style={{ marginTop: '1em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button type="button" variant="contained" color="primary" className={classes.button} style={{ height: '45px', borderRadius: '10px' }} onClick={goToRyze}>
+                  Leave Now
+                </Button>
+              </div>
+            </Grid>
+          </Grid>
+        </Box>
+      </Modal>
       <FormProvider {...methods}>
         <form className={classes.form} onSubmit={methods.handleSubmit(onSubmit)}>
           <div className="text-left client-agreement-contents">
